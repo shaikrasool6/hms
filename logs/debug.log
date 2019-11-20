@@ -1,0 +1,38 @@
+2019-11-20 17:24:17 [main] INFO  c.r.j.hospital.HospitalServiceTest - Starting HospitalServiceTest on tid150 with PID 15825 (started by root in /home/rasool/workspace/hospital-test-application-master)
+2019-11-20 17:24:17 [main] DEBUG c.r.j.hospital.HospitalServiceTest - Running with Spring Boot v1.5.20.RELEASE, Spring v4.3.23.RELEASE
+2019-11-20 17:24:17 [main] INFO  c.r.j.hospital.HospitalServiceTest - The following profiles are active: dev
+2019-11-20 17:24:21 [main] INFO  c.r.j.hospital.HospitalServiceTest - Started HospitalServiceTest in 3.736 seconds (JVM running for 4.156)
+2019-11-20 17:24:21 [main] DEBUG c.r.j.s.impl.HospitalServiceImpl - getHospitalById called
+2019-11-20 17:24:21 [main] DEBUG c.r.j.s.impl.HospitalServiceImpl - update hospital called
+2019-11-20 17:24:21 [main] DEBUG c.r.j.s.impl.HospitalServiceImpl - save hospital called
+2019-11-20 17:24:21 [main] DEBUG c.r.j.s.impl.HospitalServiceImpl - delete hospital called
+2019-11-20 17:24:33 [restartedMain] INFO  c.rest.java.HospitalTestApplication - Starting HospitalTestApplication on tid150 with PID 15858 (/home/rasool/workspace/hospital-test-application-master/target/classes started by root in /home/rasool/workspace/hospital-test-application-master)
+2019-11-20 17:24:33 [restartedMain] DEBUG c.rest.java.HospitalTestApplication - Running with Spring Boot v1.5.20.RELEASE, Spring v4.3.23.RELEASE
+2019-11-20 17:24:33 [restartedMain] INFO  c.rest.java.HospitalTestApplication - The following profiles are active: dev
+2019-11-20 17:24:36 [restartedMain] INFO  c.rest.java.HospitalTestApplication - Started HospitalTestApplication in 2.991 seconds (JVM running for 3.303)
+2019-11-20 17:24:36 [restartedMain] DEBUG c.rest.java.HospitalTestApplication - application started...
+2019-11-20 17:24:42 [http-nio-8080-exec-2] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:24:42 [http-nio-8080-exec-2] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:24:42 [http-nio-8080-exec-2] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:24:42 [http-nio-8080-exec-2] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:24:42 [http-nio-8080-exec-2] INFO  com.rest.java.entity.Hospital - Get api is callled for LoadAll Hospitals
+2019-11-20 17:25:06 [http-nio-8080-exec-4] DEBUG c.r.j.s.impl.HospitalServiceImpl - save hospital called
+2019-11-20 17:25:06 [http-nio-8080-exec-4] INFO  com.rest.java.entity.Hospital - Post api is called....
+2019-11-20 17:25:06 [http-nio-8080-exec-5] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:06 [http-nio-8080-exec-5] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:06 [http-nio-8080-exec-5] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:06 [http-nio-8080-exec-5] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:06 [http-nio-8080-exec-5] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:06 [http-nio-8080-exec-5] INFO  com.rest.java.entity.Hospital - Get api is callled for LoadAll Hospitals
+2019-11-20 17:25:12 [http-nio-8080-exec-7] DEBUG c.r.j.s.impl.HospitalServiceImpl - delete hospital called
+2019-11-20 17:25:12 [http-nio-8080-exec-7] INFO  com.rest.java.entity.Hospital - Delete Api is called for id= 7
+2019-11-20 17:25:12 [http-nio-8080-exec-8] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:12 [http-nio-8080-exec-8] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:12 [http-nio-8080-exec-8] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:12 [http-nio-8080-exec-8] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:12 [http-nio-8080-exec-8] INFO  com.rest.java.entity.Hospital - Get api is callled for LoadAll Hospitals
+2019-11-20 17:25:37 [http-nio-8080-exec-5] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:37 [http-nio-8080-exec-5] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:37 [http-nio-8080-exec-5] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:37 [http-nio-8080-exec-5] DEBUG c.r.j.s.impl.HospitalServiceImpl - ListofAllHosptials called
+2019-11-20 17:25:37 [http-nio-8080-exec-5] INFO  com.rest.java.entity.Hospital - Get api is callled for LoadAll Hospitals
