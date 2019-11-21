@@ -35,9 +35,9 @@ public class Doctor {
 	@ManyToOne
 	@JoinColumn(name="hospId")
 	private Hospital hospital;
-	
-	
 
+	
+	
 	public Hospital getHospital() {
 		return hospital;
 	}

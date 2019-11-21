@@ -17,7 +17,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.java.dto.DoctorDto;
 import com.rest.java.service.DoctorService;
-import com.rest.java.service.HospitalService;
 
 @RestController
 @RequestMapping("/doctor")
@@ -26,8 +25,6 @@ public class DoctorController {
 	@Autowired
 	private DoctorService service;
 	
-	@Autowired
-	private HospitalService hospitalService;
 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/saveDoctor")

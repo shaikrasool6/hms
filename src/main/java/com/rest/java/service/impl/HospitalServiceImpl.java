@@ -11,7 +11,9 @@ import org.springframework.stereotype.Service;
 
 import com.rest.java.dao.DoctorDao;
 import com.rest.java.dao.HospitalDao;
+import com.rest.java.dto.DoctorDto;
 import com.rest.java.dto.HospitalDto;
+import com.rest.java.entity.Doctor;
 import com.rest.java.entity.Hospital;
 import com.rest.java.exception.HospitalCustomException;
 import com.rest.java.service.HospitalService;
@@ -123,6 +125,7 @@ public class HospitalServiceImpl implements HospitalService {
 				return null;
 			}
 		} catch (Exception e) {
+			e.printStackTrace();
 			log.error("hospital not found: " + id);
 			throw new HospitalCustomException(id);
 		}
@@ -166,7 +169,7 @@ public class HospitalServiceImpl implements HospitalService {
 		hosp.setFax(dto.getFax());
 		hosp.setPhone(dto.getPhone());
 
-		/*
+	
 		
 
 		List<DoctorDto> drDto = dto.getDrdtos();
@@ -179,7 +182,6 @@ public class HospitalServiceImpl implements HospitalService {
 			}
 			hosp.setDoctorsList(dr);
 		}
-*/
 		return hosp;
 	}
 
@@ -192,7 +194,7 @@ public class HospitalServiceImpl implements HospitalService {
 		dto.setName(entity.getName());
 		dto.setFax(entity.getFax());
 		dto.setPhone(entity.getPhone());
-		/*
+		
 		List<Doctor> dr=entity.getDoctorsList();
 		
 		if(dr !=null && dr.size()>0) {
@@ -202,11 +204,10 @@ public class HospitalServiceImpl implements HospitalService {
 			}
 			dto.setDrdtos(drDto);
 		}
-		*/
 		return dto;
 	}
 
-	/*
+	
 	private DoctorDto mapEntityToDto(Doctor d) {
 		DoctorDto dto=new DoctorDto();
 		dto.setId(d.getId());
@@ -215,6 +216,7 @@ public class HospitalServiceImpl implements HospitalService {
 		dto.setPhone(d.getEmail());
 		dto.setDeparment(d.getDeparment());
 		dto.setAddress(d.getAddress());
+		dto.setHospId(d.getHospital().getHospId());
 		return dto;
 	}
 	
@@ -226,10 +228,10 @@ public class HospitalServiceImpl implements HospitalService {
 		entity.setPhone(dd.getPhone());
 		entity.setDeparment(dd.getDeparment());
 		entity.setAddress(dd.getAddress());
+		dd.setHospId(dd.getHospId());
 		return entity;
 	}
 
-*/
 	
 
 	@Override
