@@ -1,10 +1,5 @@
 package com.rest.java.dto;
 
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-
-import com.rest.java.entity.Hospital;
-
 public class DoctorDto {
 
 	

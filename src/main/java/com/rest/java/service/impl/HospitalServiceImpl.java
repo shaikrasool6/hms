@@ -168,9 +168,8 @@ public class HospitalServiceImpl implements HospitalService {
 		hosp.setName(dto.getName());
 		hosp.setFax(dto.getFax());
 		hosp.setPhone(dto.getPhone());
-
 	
-		
+	
 
 		List<DoctorDto> drDto = dto.getDrdtos();
 
@@ -228,7 +227,7 @@ public class HospitalServiceImpl implements HospitalService {
 		entity.setPhone(dd.getPhone());
 		entity.setDeparment(dd.getDeparment());
 		entity.setAddress(dd.getAddress());
-		dd.setHospId(dd.getHospId());
+		entity.getHospital().setHospId(dd.getHospId());
 		return entity;
 	}
 

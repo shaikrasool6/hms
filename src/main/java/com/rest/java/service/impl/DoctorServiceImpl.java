@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 
 import com.rest.java.dao.DoctorDao;
 import com.rest.java.dto.DoctorDto;
-import com.rest.java.dto.HospitalDto;
 import com.rest.java.entity.Doctor;
 import com.rest.java.service.DoctorService;
 
@@ -79,7 +78,7 @@ public class DoctorServiceImpl implements DoctorService{
 		entity.setPhone(dto.getPhone());
 		entity.setDeparment(dto.getDeparment());
 		entity.setAddress(dto.getAddress());
-		dto.setHospId(dto.getHospId());	
+		entity.getHospital().setHospId(dto.getHospId());
 		return entity;
 	}
 
