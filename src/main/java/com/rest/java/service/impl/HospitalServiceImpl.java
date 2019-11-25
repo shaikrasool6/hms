@@ -1,6 +1,7 @@
 package com.rest.java.service.impl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.slf4j.Logger;
@@ -33,7 +34,7 @@ public class HospitalServiceImpl implements HospitalService {
 
 	@Autowired
 	private HospitalDao dao;
-	
+
 	@Autowired
 	private DoctorDao drDao;
 
@@ -134,30 +135,36 @@ public class HospitalServiceImpl implements HospitalService {
 	@Override
 	public List<HospitalDto> getAllHospitals() {
 
-		List<HospitalDto> dtos = new ArrayList<>();
-
 		List<Hospital> hList = dao.getAllHospitals();
+
+		List<HospitalDto> dtos = mapEntitysToDto(hList.iterator());
 
 		for (int i = 0; i < hList.size(); i++) {
 
 			HospitalDto dto = new HospitalDto();
-
+			
 			BeanUtils.copyProperties(hList.get(i), dto);
+			
 			log.debug("ListofAllHosptials called");
-			dtos.add(dto);
+			
+			//dtos.add(dto);
 		}
 
 		return dtos;
 
-		/*
-		 * List<HospitalDto> hospDtosList = null; if (hList != null) { hospDtosList =
-		 * new ArrayList<HospitalDto>(); while (((Iterator<Hospital>) hList).hasNext())
-		 * { hospDtosList.add(mapEntityToDto(((Iterator<Hospital>) hList).next())); }
-		 * 
-		 * } else { System.out.println("there is no record...." + hospDtosList); }
-		 * 
-		 * return hospDtosList;
-		 */
+	}
+
+	private List<HospitalDto> mapEntitysToDto(Iterator<Hospital> hospitalList) {
+
+		List<HospitalDto> hospitalDtos = null;
+		if (hospitalList != null) {
+			hospitalDtos = new ArrayList<HospitalDto>();
+			while (hospitalList.hasNext()) {
+				hospitalDtos.add(mapEntityToDto(hospitalList.next()));
+			}
+		}
+
+		return hospitalDtos;
 	}
 
 	@Override
@@ -168,8 +175,6 @@ public class HospitalServiceImpl implements HospitalService {
 		hosp.setName(dto.getName());
 		hosp.setFax(dto.getFax());
 		hosp.setPhone(dto.getPhone());
-	
-	
 
 		List<DoctorDto> drDto = dto.getDrdtos();
 
@@ -184,7 +189,6 @@ public class HospitalServiceImpl implements HospitalService {
 		return hosp;
 	}
 
-
 	@Override
 	public HospitalDto mapEntityToDto(Hospital entity) {
 		HospitalDto dto = new HospitalDto();
@@ -193,12 +197,12 @@ public class HospitalServiceImpl implements HospitalService {
 		dto.setName(entity.getName());
 		dto.setFax(entity.getFax());
 		dto.setPhone(entity.getPhone());
-		
-		List<Doctor> dr=entity.getDoctorsList();
-		
-		if(dr !=null && dr.size()>0) {
-			List<DoctorDto> drDto=new ArrayList<DoctorDto>();
-			for (Doctor d:dr) {
+
+		List<Doctor> dr = entity.getDoctorsList();
+
+		if (dr != null && dr.size() > 0) {
+			List<DoctorDto> drDto = new ArrayList<DoctorDto>();
+			for (Doctor d : dr) {
 				drDto.add(mapEntityToDto(d));
 			}
 			dto.setDrdtos(drDto);
@@ -206,9 +210,8 @@ public class HospitalServiceImpl implements HospitalService {
 		return dto;
 	}
 
-	
 	private DoctorDto mapEntityToDto(Doctor d) {
-		DoctorDto dto=new DoctorDto();
+		DoctorDto dto = new DoctorDto();
 		dto.setId(d.getId());
 		dto.setName(d.getName());
 		dto.setEmail(d.getEmail());
@@ -218,9 +221,9 @@ public class HospitalServiceImpl implements HospitalService {
 		dto.setHospId(d.getHospital().getHospId());
 		return dto;
 	}
-	
+
 	private Doctor mapDtoToEntity(DoctorDto dd) {
-		Doctor entity=new Doctor();
+		Doctor entity = new Doctor();
 		entity.setId(dd.getId());
 		entity.setName(dd.getName());
 		entity.setEmail(dd.getEmail());
@@ -231,18 +234,13 @@ public class HospitalServiceImpl implements HospitalService {
 		return entity;
 	}
 
-	
-
 	@Override
 	public HospitalDto searchHositals(String name) {
-		
-		Hospital hospital=dao.searchHospital(name);
+
+		Hospital hospital = dao.searchHospital(name);
 		HospitalDto dto = mapEntityToDto(hospital);
 		System.out.println(dto);
 		return dto;
-		
 
-	
+	}
 }
-}
-

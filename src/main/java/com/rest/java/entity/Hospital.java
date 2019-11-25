@@ -236,6 +236,12 @@ public class Hospital implements Serializable {
 		return true;
 	}
 
+	@Override
+	public String toString() {
+		return "Hospital [hospId=" + hospId + ", name=" + name + ", email=" + email + ", phone=" + phone + ", fax="
+				+ fax + ", doctorsList=" + doctorsList + "]";
+	}
+
 
 
 

@@ -1,6 +1,7 @@
 package com.rest.java.service.impl;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.springframework.beans.BeanUtils;
@@ -56,17 +57,37 @@ public class DoctorServiceImpl implements DoctorService{
 	@Override
 	public List<DoctorDto> getAllDoctors() {
 		
-		List<DoctorDto> dtos=new ArrayList<DoctorDto>();
 		List<Doctor> drs=dao.getAllDoctors();
+
+		List<DoctorDto> dtos=mapEntitiesToDto(drs.iterator());
+		
 		for(int i=0; i<drs.size(); i++) {
+			
 			DoctorDto dto=new DoctorDto();
+			
 			BeanUtils.copyProperties(drs.get(i), dto);
-			dtos.add(dto);
+			
+			//dtos.add(dto);
 		}		
 		return dtos;
 	}
 	
 	
+	
+
+
+	private List<DoctorDto> mapEntitiesToDto(Iterator<Doctor> doctorsList) {
+		List<DoctorDto> doctordtos=null;
+		
+		if(doctorsList!=null) {
+			doctordtos=new ArrayList<DoctorDto>();
+			while(doctorsList.hasNext()) {
+				doctordtos.add(mapEntityToDto(doctorsList.next()));
+			}
+		}
+		
+		return doctordtos;
+	}
 
 	@Override
 	public Doctor mapDtoToEntity(DoctorDto dto) {
