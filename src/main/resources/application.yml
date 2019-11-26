@@ -2,7 +2,7 @@ spring:
   profiles: dev
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/hospital-service?useSSL=false
+    url: jdbc:mysql://localhost:3306/hms?useSSL=false
 
     username: root
     password: root

@@ -2,9 +2,12 @@ package com.rest.java.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,6 +23,7 @@ import com.rest.java.service.DoctorService;
 
 @RestController
 @RequestMapping("/doctor")
+@Validated
 public class DoctorController {
 
 	@Autowired
@@ -27,11 +31,13 @@ public class DoctorController {
 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@PostMapping("/saveDoctor")
-	public ResponseEntity<DoctorDto> saveDoctor(@RequestBody DoctorDto dto) {
+	public ResponseEntity<DoctorDto> saveDoctor(@Valid @RequestBody DoctorDto dto) {
 
+		
 		DoctorDto doctor = service.addDoctor(dto);
+		
 		return new ResponseEntity<DoctorDto>(doctor, HttpStatus.OK);
-
+		
 	}
 
 	@CrossOrigin(origins = "http://localhost:4200")
@@ -46,7 +52,7 @@ public class DoctorController {
 	public ResponseEntity<DoctorDto> updateDoctor(@RequestBody DoctorDto dto) {
 		DoctorDto doctor = service.updateDoctor(dto);
 		return new ResponseEntity<DoctorDto>(doctor, HttpStatus.OK);
-	}
+			}
 
 	@CrossOrigin(origins = "http://localhost:4200")
 	@DeleteMapping("/deleteDoctor/{id}")

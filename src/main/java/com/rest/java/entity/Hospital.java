@@ -39,6 +39,7 @@ public class Hospital implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="hospId")
 	private Integer hospId;
 
 	/**
@@ -236,13 +237,6 @@ public class Hospital implements Serializable {
 		return true;
 	}
 
-	@Override
-	public String toString() {
-		return "Hospital [hospId=" + hospId + ", name=" + name + ", email=" + email + ", phone=" + phone + ", fax="
-				+ fax + ", doctorsList=" + doctorsList + "]";
-	}
-
-
-
+	
 
 }

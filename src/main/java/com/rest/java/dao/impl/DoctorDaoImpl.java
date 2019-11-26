@@ -69,6 +69,7 @@ public class DoctorDaoImpl implements DoctorDao {
 		return doc;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Doctor> getAllDoctors() {
 		

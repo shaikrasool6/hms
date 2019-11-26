@@ -65,7 +65,7 @@ public class HospitalController {
 			log.info("Post api is called....");
 			return new ResponseEntity<HospitalDto>(hospital, HttpStatus.OK);
 		} else {
-			return new ResponseEntity<HospitalDto>(HttpStatus.BAD_REQUEST);
+			return new ResponseEntity<HospitalDto>(hospital, HttpStatus.BAD_REQUEST);
 		}
 
 	}

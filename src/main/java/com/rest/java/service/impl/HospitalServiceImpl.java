@@ -35,9 +35,7 @@ public class HospitalServiceImpl implements HospitalService {
 	@Autowired
 	private HospitalDao dao;
 
-	@Autowired
-	private DoctorDao drDao;
-
+	
 	@Override
 	public HospitalDto saveHospital(HospitalDto dto) {
 
@@ -142,12 +140,12 @@ public class HospitalServiceImpl implements HospitalService {
 		for (int i = 0; i < hList.size(); i++) {
 
 			HospitalDto dto = new HospitalDto();
-			
+
 			BeanUtils.copyProperties(hList.get(i), dto);
-			
+
 			log.debug("ListofAllHosptials called");
-			
-			//dtos.add(dto);
+
+			// dtos.add(dto);
 		}
 
 		return dtos;
@@ -180,12 +178,12 @@ public class HospitalServiceImpl implements HospitalService {
 
 		if (drDto != null && drDto.size() > 0) {
 			List<Doctor> dr = new ArrayList<Doctor>();
-
 			for (DoctorDto dd : drDto) {
 				dr.add(mapDtoToEntity(dd));
 			}
 			hosp.setDoctorsList(dr);
 		}
+
 		return hosp;
 	}
 
@@ -197,7 +195,7 @@ public class HospitalServiceImpl implements HospitalService {
 		dto.setName(entity.getName());
 		dto.setFax(entity.getFax());
 		dto.setPhone(entity.getPhone());
-
+		
 		List<Doctor> dr = entity.getDoctorsList();
 
 		if (dr != null && dr.size() > 0) {
@@ -230,7 +228,7 @@ public class HospitalServiceImpl implements HospitalService {
 		entity.setPhone(dd.getPhone());
 		entity.setDeparment(dd.getDeparment());
 		entity.setAddress(dd.getAddress());
-		entity.getHospital().setHospId(dd.getHospId());
+		entity.setHospital(dao.getOneHospital(dd.getHospId()));
 		return entity;
 	}
 

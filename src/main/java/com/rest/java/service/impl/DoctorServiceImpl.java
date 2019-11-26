@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.rest.java.dao.DoctorDao;
+import com.rest.java.dao.HospitalDao;
 import com.rest.java.dto.DoctorDto;
 import com.rest.java.entity.Doctor;
 import com.rest.java.service.DoctorService;
@@ -19,6 +20,9 @@ public class DoctorServiceImpl implements DoctorService{
 	
 	@Autowired
 	private DoctorDao dao;
+	
+	@Autowired
+	private HospitalDao hospitalDao;
 
 	@Override
 	public DoctorDto addDoctor(DoctorDto dto) {
@@ -99,7 +103,8 @@ public class DoctorServiceImpl implements DoctorService{
 		entity.setPhone(dto.getPhone());
 		entity.setDeparment(dto.getDeparment());
 		entity.setAddress(dto.getAddress());
-		entity.getHospital().setHospId(dto.getHospId());
+		entity.setHospital(hospitalDao.getOneHospital(dto.getHospId()));
+
 		return entity;
 	}
 
@@ -110,7 +115,7 @@ public class DoctorServiceImpl implements DoctorService{
 		dto.setId(entity.getId());
 		dto.setName(entity.getName());
 		dto.setEmail(entity.getEmail());
-		dto.setPhone(entity.getEmail());
+		dto.setPhone(entity.getPhone());
 		dto.setDeparment(entity.getDeparment());
 		dto.setAddress(entity.getAddress());
 		dto.setHospId(entity.getHospital().getHospId());

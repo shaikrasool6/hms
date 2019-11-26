@@ -1,23 +1,27 @@
 package com.rest.java.entity;
 
+import java.io.Serializable;
+
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
-import com.rest.java.dto.HospitalDto;
-
 /**
  * @author root
  *
  */
 @Entity
-public class Doctor {
+public class Doctor implements Serializable {
 
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1135742614337641415L;
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
@@ -37,7 +41,7 @@ public class Doctor {
 	private Hospital hospital;
 
 	
-	
+
 	public Hospital getHospital() {
 		return hospital;
 	}
@@ -94,10 +98,12 @@ public class Doctor {
 		this.address = address;
 	}
 
+	@Override
+	public String toString() {
+		return "Doctor [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", deparment="
+				+ deparment + ", address=" + address + ", hospital=" + hospital + "]";
+	}
 
 
-
-	
-	
 	
 }
