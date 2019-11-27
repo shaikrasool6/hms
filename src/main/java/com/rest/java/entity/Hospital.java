@@ -73,8 +73,23 @@ public class Hospital implements Serializable {
 	@OneToMany(fetch = FetchType.EAGER,  mappedBy = "hospital", cascade = CascadeType.ALL)
 	private List<Doctor> doctorsList;
 	
+	@OneToMany(fetch = FetchType.LAZY,  mappedBy = "hospital", cascade = CascadeType.ALL)
+	private List<Patient> patientsList;
 	
 	
+	
+	
+	
+	
+	
+	public List<Patient> getPatientsList() {
+		return patientsList;
+	}
+
+	public void setPatientsList(List<Patient> patientsList) {
+		this.patientsList = patientsList;
+	}
+
 	public List<Doctor> getDoctorsList() {
 		return doctorsList;
 	}

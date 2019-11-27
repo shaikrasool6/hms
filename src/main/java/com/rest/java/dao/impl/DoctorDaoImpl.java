@@ -60,7 +60,7 @@ public class DoctorDaoImpl implements DoctorDao {
 		Doctor doc=session.get(Doctor.class , id);
 		
 		if(doc !=null) {
-			doc.setId(id);
+			doc.setDrId(id);
 			session.delete(doc);
 		}
 		tx.commit();

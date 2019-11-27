@@ -47,7 +47,7 @@ public class RestExceptionHandlerTest extends ResponseEntityExceptionHandler {
 	
 	@ExceptionHandler(Exception.class)
 	public void springInternalServer(HttpServletResponse response)throws Exception {
-		response.sendError(HttpStatus.NOT_FOUND.value(),"some where null is passing make sure");
+		response.sendError(HttpStatus.NOT_FOUND.value(),"make sure Id not exist");
 	}
 
 

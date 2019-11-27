@@ -26,7 +26,7 @@ public class DoctorServiceImpl implements DoctorService{
 
 	@Override
 	public DoctorDto addDoctor(DoctorDto dto) {
-			
+		
 		Doctor dr=mapDtoToEntity(dto);
 		dr=dao.addDoctor(dr);
 		return mapEntityToDto(dr);
@@ -80,7 +80,7 @@ public class DoctorServiceImpl implements DoctorService{
 	
 
 
-	private List<DoctorDto> mapEntitiesToDto(Iterator<Doctor> doctorsList) {
+	public List<DoctorDto> mapEntitiesToDto(Iterator<Doctor> doctorsList) {
 		List<DoctorDto> doctordtos=null;
 		
 		if(doctorsList!=null) {
@@ -97,7 +97,7 @@ public class DoctorServiceImpl implements DoctorService{
 	public Doctor mapDtoToEntity(DoctorDto dto) {
 
 		Doctor entity=new Doctor();
-		entity.setId(dto.getId());
+		entity.setDrId(dto.getDrId());
 		entity.setName(dto.getName());
 		entity.setEmail(dto.getEmail());
 		entity.setPhone(dto.getPhone());
@@ -112,7 +112,7 @@ public class DoctorServiceImpl implements DoctorService{
 	public DoctorDto mapEntityToDto(Doctor entity) {
 		
 		DoctorDto dto=new DoctorDto();
-		dto.setId(entity.getId());
+		dto.setDrId(entity.getDrId());
 		dto.setName(entity.getName());
 		dto.setEmail(entity.getEmail());
 		dto.setPhone(entity.getPhone());

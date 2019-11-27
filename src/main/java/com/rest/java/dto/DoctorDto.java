@@ -3,7 +3,7 @@ package com.rest.java.dto;
 public class DoctorDto {
 
 	
-	private int id;
+	private int drId;
 	
 	private String name;
 	
@@ -27,13 +27,14 @@ public class DoctorDto {
 		this.hospId = hospId;
 	}
 
-	public int getId() {
-		return id;
+
+
+	public int getDrId() {
+		return drId;
 	}
 
-	public void setId(int id) {
-		
-		this.id = id;
+	public void setDrId(int drId) {
+		this.drId = drId;
 	}
 
 	public String getDeparment() {

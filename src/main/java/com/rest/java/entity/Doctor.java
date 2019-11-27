@@ -24,7 +24,7 @@ public class Doctor implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	private int drId;
 	
 	private String name;
 	
@@ -50,12 +50,12 @@ public class Doctor implements Serializable {
 		this.hospital = hospital;
 	}
 
-	public int getId() {
-		return id;
+	public int getDrId() {
+		return drId;
 	}
 
-	public void setId(int id) {
-		this.id = id;
+	public void setDrId(int drId) {
+		this.drId = drId;
 	}
 
 	public String getName() {
@@ -98,12 +98,7 @@ public class Doctor implements Serializable {
 		this.address = address;
 	}
 
-	@Override
-	public String toString() {
-		return "Doctor [id=" + id + ", name=" + name + ", email=" + email + ", phone=" + phone + ", deparment="
-				+ deparment + ", address=" + address + ", hospital=" + hospital + "]";
-	}
-
+	
 
 	
 }

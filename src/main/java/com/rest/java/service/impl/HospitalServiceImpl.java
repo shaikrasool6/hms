@@ -10,12 +10,13 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.rest.java.dao.DoctorDao;
 import com.rest.java.dao.HospitalDao;
 import com.rest.java.dto.DoctorDto;
 import com.rest.java.dto.HospitalDto;
+import com.rest.java.dto.PatientDto;
 import com.rest.java.entity.Doctor;
 import com.rest.java.entity.Hospital;
+import com.rest.java.entity.Patient;
 import com.rest.java.exception.HospitalCustomException;
 import com.rest.java.service.HospitalService;
 
@@ -174,6 +175,7 @@ public class HospitalServiceImpl implements HospitalService {
 		hosp.setFax(dto.getFax());
 		hosp.setPhone(dto.getPhone());
 
+		
 		List<DoctorDto> drDto = dto.getDrdtos();
 
 		if (drDto != null && drDto.size() > 0) {
@@ -183,8 +185,39 @@ public class HospitalServiceImpl implements HospitalService {
 			}
 			hosp.setDoctorsList(dr);
 		}
-
+		
+		
+		
+		List<PatientDto> patientDtos=dto.getPntDtos();
+		
+		if(patientDtos!=null && patientDtos.size()>0) {
+			List<Patient> patient=new ArrayList<Patient>();
+			for(PatientDto patientDto:patientDtos) {
+				patient.add(mapDtoToEntity(patientDto));
+			}
+			hosp.setPatientsList(patient);
+		}
+		
+		
 		return hosp;
+	}
+
+	private Patient mapDtoToEntity(PatientDto patientDto) {
+		Patient entity = new Patient();
+		entity.setPid(patientDto.getPid());
+		entity.setName(patientDto.getName());
+		entity.setGender(patientDto.getGender());
+		entity.setEmail(patientDto.getEmail());
+		entity.setAddress(patientDto.getAddress());
+		entity.setPhone(patientDto.getPhone());
+		entity.setDateOfBirth(patientDto.getDateOfBirth());
+		entity.setAge(patientDto.getAge());
+		entity.setBloodGroup(patientDto.getBloodGroup());
+		entity.setAdmitDate(patientDto.getAdmitDate());
+		entity.setDischargeDate(patientDto.getDischargeDate());
+		entity.setDiseases(patientDto.getDiseases());
+		entity.setHospital(dao.getOneHospital(patientDto.getHospId()));
+		return entity;
 	}
 
 	@Override
@@ -205,12 +238,48 @@ public class HospitalServiceImpl implements HospitalService {
 			}
 			dto.setDrdtos(drDto);
 		}
+		
+		
+		List<Patient> patient=entity.getPatientsList();
+		
+		if(patient !=null && patient.size()>0) {
+			List<PatientDto> patientDto=new ArrayList<PatientDto>();
+			
+			for(Patient p:patient) {
+				patientDto.add(mapEntityToDto(p));
+			}
+			dto.setPntDtos(patientDto);
+		}
+		
+		
+
+		
+		return dto;
+	}
+
+	private PatientDto mapEntityToDto(Patient p) {
+		PatientDto dto = new PatientDto();
+
+		dto.setPid(p.getPid());
+		dto.setName(p.getName());
+		dto.setGender(p.getGender());
+		dto.setEmail(p.getEmail());
+		dto.setAddress(p.getAddress());
+		dto.setPhone(p.getPhone());
+		dto.setDateOfBirth(p.getDateOfBirth());
+		dto.setAge(p.getAge());
+		dto.setBloodGroup(p.getBloodGroup());
+		dto.setAdmitDate(p.getAdmitDate());
+		dto.setDischargeDate(p.getDischargeDate());
+		dto.setDiseases(p.getDiseases());
+		dto.setHospId(p.getHospital().getHospId());
+
 		return dto;
 	}
 
 	private DoctorDto mapEntityToDto(Doctor d) {
 		DoctorDto dto = new DoctorDto();
-		dto.setId(d.getId());
+		dto.setDrId(d.getDrId());
 		dto.setName(d.getName());
 		dto.setEmail(d.getEmail());
 		dto.setPhone(d.getEmail());
@@ -222,7 +291,7 @@ public class HospitalServiceImpl implements HospitalService {
 
 	private Doctor mapDtoToEntity(DoctorDto dd) {
 		Doctor entity = new Doctor();
-		entity.setId(dd.getId());
+		entity.setDrId(dd.getDrId());
 		entity.setName(dd.getName());
 		entity.setEmail(dd.getEmail());
 		entity.setPhone(dd.getPhone());
@@ -232,6 +301,11 @@ public class HospitalServiceImpl implements HospitalService {
 		return entity;
 	}
 
+	
+	
+	
+	
+	
 	@Override
 	public HospitalDto searchHositals(String name) {
 

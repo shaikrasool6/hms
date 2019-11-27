@@ -70,11 +70,20 @@ public class HospitalDto implements Serializable {
 	
 	
 	
+	private List<PatientDto> pntDtos;
 	
 	
 	
+	public List<PatientDto> getPntDtos() {
+		return pntDtos;
+	}
 
+	public void setPntDtos(List<PatientDto> pntDtos) {
+		this.pntDtos = pntDtos;
+	}
 
+	
+	
 	public List<DoctorDto> getDrdtos() {
 		return drdtos;
 	}
