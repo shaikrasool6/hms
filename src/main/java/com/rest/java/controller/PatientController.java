@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -19,6 +20,7 @@ import com.rest.java.service.PatientService;
 
 @RestController
 @RequestMapping("/patient")
+@CrossOrigin(origins = "http://localhost:4200")
 public class PatientController {
 
 	@Autowired
@@ -34,7 +36,7 @@ public class PatientController {
 		List<PatientDto> patientDtos=service.getAllPatients();
 		return new ResponseEntity<List<PatientDto>>(patientDtos, HttpStatus.OK);
 	}
-	@GetMapping("/PatientId/{id}")
+	@GetMapping("/patientId/{id}")
 	public ResponseEntity<PatientDto>getOnePatient(@PathVariable int id){
 		PatientDto patient=service.getOnePatient(id);
 		return new ResponseEntity<PatientDto>(patient, HttpStatus.OK);
