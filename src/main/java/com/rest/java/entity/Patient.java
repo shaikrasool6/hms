@@ -17,7 +17,7 @@ public class Patient {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private int pid;
+	private Integer pid;
 	
 	private String name;
 	

@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class PatientDto {
 
-	private int pid;
+	private Integer pid;
 	
 	private String name;
 	
@@ -44,11 +44,11 @@ public class PatientDto {
 		this.hospId = hospId;
 	}
 
-	public int getPid() {
+	public Integer getPid() {
 		return pid;
 	}
 
-	public void setPid(int pid) {
+	public void setPid(Integer pid) {
 		this.pid = pid;
 	}
 
