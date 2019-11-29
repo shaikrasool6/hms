@@ -2,6 +2,7 @@ package com.rest.java.view;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
+import java.util.Date;
 import java.util.stream.Stream;
 
 import com.itextpdf.text.BaseColor;
@@ -47,7 +48,7 @@ public class PatientPdfView {
 				table.addCell(header);
 
 			});
-
+			
 			PdfPCell idCell = new PdfPCell(new Phrase(patient.getPid().toString()));
 			idCell.setPaddingLeft(4);
 			idCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
@@ -79,6 +80,9 @@ public class PatientPdfView {
 			table.addCell(email);
 
 			document.add(table);
+			
+			
+			document.add(new Paragraph(new Date().toString()));
 			document.close();
 
 		} catch (DocumentException e) {

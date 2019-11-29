@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.rest.java.dto.PatientDto;
+import com.rest.java.entity.Patient;
 import com.rest.java.service.PatientService;
 import com.rest.java.view.PatientPdfView;
 
