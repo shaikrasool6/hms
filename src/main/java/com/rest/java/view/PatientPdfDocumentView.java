@@ -17,13 +17,14 @@ import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.rest.java.dao.HospitalDao;
+import com.rest.java.dto.HospitalDto;
 import com.rest.java.dto.PatientDto;
 @Component
 public class PatientPdfDocumentView {
 	@Autowired
 	public static HospitalDao dao;
 	
-	public static ByteArrayInputStream patientPdfReport(PatientDto patient) {
+	public static ByteArrayInputStream patientPdfReport(PatientDto patient, HospitalDto hospital) {
 		
 		
 		Document document = new Document();
@@ -33,7 +34,7 @@ public class PatientPdfDocumentView {
 			PdfWriter.getInstance(document, out);
 			document.open();
 			Font font = FontFactory.getFont(FontFactory.TIMES_BOLDITALIC, 18, BaseColor.DARK_GRAY);
-			Paragraph para = new Paragraph("Hospital Name", font);
+			Paragraph para = new Paragraph(hospital.getName()+" Hospital", font);
 			para.setAlignment(Element.ALIGN_CENTER);
 			document.add(para);
 			document.add(Chunk.NEWLINE);
@@ -49,11 +50,12 @@ public class PatientPdfDocumentView {
 			paragraph.add(new Paragraph("Blood Group: " + patient.getBloodGroup()));
 			paragraph.add(new Paragraph("Disease: " + patient.getDiseases()));
 			paragraph.add(new Paragraph("Admit Date:  " + patient.getAdmitDate()));
+				
 			document.add(paragraph);
-			paragraph.add(new Paragraph(""));
+			
 			document.add(new Paragraph("______________________________________________________________________________"));
 			document.add(new Paragraph(new Date().toString()));
-
+				
 			document.close();
 		} catch (DocumentException e) {
 			e.printStackTrace();

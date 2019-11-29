@@ -1,0 +1,5 @@
+2019-11-29 18:29:34 [restartedMain] INFO  c.rest.java.HospitalTestApplication - Starting HospitalTestApplication on tid150 with PID 32355 (/home/rasool/workspace/hospital-test-application-master/target/classes started by root in /home/rasool/workspace/hospital-test-application-master)
+2019-11-29 18:29:34 [restartedMain] DEBUG c.rest.java.HospitalTestApplication - Running with Spring Boot v1.5.20.RELEASE, Spring v4.3.23.RELEASE
+2019-11-29 18:29:34 [restartedMain] INFO  c.rest.java.HospitalTestApplication - The following profiles are active: dev
+2019-11-29 18:29:35 [restartedMain] INFO  c.rest.java.HospitalTestApplication - Started HospitalTestApplication in 0.838 seconds (JVM running for 1065.61)
+2019-11-29 18:29:35 [restartedMain] DEBUG c.rest.java.HospitalTestApplication - application started...
