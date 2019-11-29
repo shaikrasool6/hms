@@ -4,9 +4,6 @@ import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.util.Date;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
-
 import com.itextpdf.text.BaseColor;
 import com.itextpdf.text.Chunk;
 import com.itextpdf.text.Document;
@@ -16,13 +13,11 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
-import com.rest.java.dao.HospitalDao;
 import com.rest.java.dto.HospitalDto;
 import com.rest.java.dto.PatientDto;
-@Component
+
 public class PatientPdfDocumentView {
-	@Autowired
-	public static HospitalDao dao;
+	
 	
 	public static ByteArrayInputStream patientPdfReport(PatientDto patient, HospitalDto hospital) {
 		
