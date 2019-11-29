@@ -51,6 +51,7 @@ public class AdminDaoImpl implements AdminDao {
 		return null;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public List<Admin> getAllAdmins() {
 		

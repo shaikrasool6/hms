@@ -10,6 +10,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -70,10 +71,10 @@ public class Hospital implements Serializable {
 	private String fax;
 	
 
-	@OneToMany(fetch = FetchType.EAGER,  mappedBy = "hospital", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "hospital", orphanRemoval = true)
 	private List<Doctor> doctorsList;
 	
-	@OneToMany(fetch = FetchType.LAZY,  mappedBy = "hospital", cascade = CascadeType.ALL)
+	@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "hospital", orphanRemoval = true)
 	private List<Patient> patientsList;
 	
 	

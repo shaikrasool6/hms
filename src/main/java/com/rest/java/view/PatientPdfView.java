@@ -43,7 +43,7 @@ public class PatientPdfView {
 				Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
 				header.setBackgroundColor(BaseColor.LIGHT_GRAY);
 				header.setHorizontalAlignment(Element.ALIGN_CENTER);
-				header.setBorderWidth(2);
+				header.setBorderWidth(1);
 				header.setPhrase(new Phrase(headerTitle, headFont));
 				table.addCell(header);
 
@@ -80,7 +80,6 @@ public class PatientPdfView {
 			table.addCell(email);
 
 			document.add(table);
-			
 			
 			document.add(new Paragraph(new Date().toString()));
 			document.close();

@@ -76,6 +76,7 @@ public class HospitalController {
 	 * @param id
 	 * @return Response contains Hospital information.
 	 */
+	@SuppressWarnings("unused")
 	@GetMapping(value = "/hospitalId/{id}")
 	public ResponseEntity<HospitalDto> getOneHospital(@PathVariable("id") int id) {
 
