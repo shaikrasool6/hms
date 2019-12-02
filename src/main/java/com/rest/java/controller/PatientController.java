@@ -25,6 +25,7 @@ import com.rest.java.dto.PatientDto;
 import com.rest.java.service.HospitalService;
 import com.rest.java.service.PatientService;
 import com.rest.java.view.PatientPdfDocumentView;
+import com.rest.java.view.PatientPdfView;
 
 @RestController
 @RequestMapping("/patient")

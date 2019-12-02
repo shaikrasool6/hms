@@ -14,7 +14,9 @@ import com.itextpdf.text.Font;
 import com.itextpdf.text.FontFactory;
 import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.Phrase;
+import com.itextpdf.text.Rectangle;
 import com.itextpdf.text.pdf.PdfPCell;
+import com.itextpdf.text.pdf.PdfPRow;
 import com.itextpdf.text.pdf.PdfPTable;
 import com.itextpdf.text.pdf.PdfWriter;
 import com.rest.java.dto.PatientDto;
@@ -36,49 +38,55 @@ public class PatientPdfView {
 			document.add(para);
 			document.add(Chunk.NEWLINE);
 
-			PdfPTable table = new PdfPTable(5);
-
-			Stream.of("pid", "name", "gender", "diseases", "email").forEach(headerTitle -> {
-				PdfPCell header = new PdfPCell();
-				Font headFont = FontFactory.getFont(FontFactory.HELVETICA_BOLD);
-				header.setBackgroundColor(BaseColor.LIGHT_GRAY);
-				header.setHorizontalAlignment(Element.ALIGN_CENTER);
-				header.setBorderWidth(1);
-				header.setPhrase(new Phrase(headerTitle, headFont));
-				table.addCell(header);
-
-			});
+			PdfPTable table = new PdfPTable(3);
 			
-			PdfPCell idCell = new PdfPCell(new Phrase(patient.getPid().toString()));
-			idCell.setPaddingLeft(4);
-			idCell.setVerticalAlignment(Element.ALIGN_MIDDLE);
-			idCell.setHorizontalAlignment(Element.ALIGN_CENTER);
+			/*
+			 * Stream.of("pid", "name", "gender", "diseases", "email").forEach(headerTitle
+			 * -> { PdfPCell header = new PdfPCell(); Font headFont =
+			 * FontFactory.getFont(FontFactory.HELVETICA_BOLD);
+			 * header.setBackgroundColor(BaseColor.LIGHT_GRAY);
+			 * header.setHorizontalAlignment(Element.ALIGN_CENTER);
+			 * header.setBorderWidth(1); header.setPhrase(new Phrase(headerTitle,
+			 * headFont)); table.getDefaultCell().setBorder(Rectangle.NO_BORDER);
+			 * table.addCell(header);
+			 * 
+			 * });
+			 */
+		
+			
+			PdfPCell idCell = new PdfPCell(new Phrase("Patient Id: "+patient.getPid().toString()));
+			 idCell.setHorizontalAlignment(Element.ALIGN_LEFT);
+			 idCell.setBorder(Rectangle.NO_BORDER);
 			table.addCell(idCell);
 
-			PdfPCell name = new PdfPCell(new Phrase(patient.getName()));
+			PdfPCell name = new PdfPCell(new Phrase("Patient Name: "+patient.getName()));
+			name.setBorder(Rectangle.NO_BORDER);
 			name.setPaddingLeft(4);
 			name.setVerticalAlignment(Element.ALIGN_MIDDLE);
 			name.setHorizontalAlignment(Element.ALIGN_LEFT);
 			table.addCell(name);
 
-			PdfPCell gender = new PdfPCell(new Phrase(patient.getGender()));
-			gender.setPaddingLeft(4);
-			gender.setVerticalAlignment(Element.ALIGN_MIDDLE);
+			PdfPCell gender = new PdfPCell(new Phrase("Gender: "+patient.getGender()));
+			gender.setBorder(Rectangle.NO_BORDER);
+			gender.setPaddingLeft(6);
+			gender.setVerticalAlignment(Element.ALIGN_RIGHT);
 			gender.setHorizontalAlignment(Element.ALIGN_LEFT);
 			table.addCell(gender);
 
 			PdfPCell diseases = new PdfPCell(new Phrase(patient.getDiseases()));
-			diseases.setPaddingLeft(4);
+			diseases.setBorder(Rectangle.NO_BORDER);
+			diseases.setPaddingLeft(6);
 			diseases.setVerticalAlignment(Element.ALIGN_MIDDLE);
 			diseases.setHorizontalAlignment(Element.ALIGN_LEFT);
 			table.addCell(diseases);
 
 			PdfPCell email = new PdfPCell(new Phrase(patient.getEmail()));
+			email.setBorder(Rectangle.NO_BORDER);
 			email.setPaddingLeft(4);
 			email.setVerticalAlignment(Element.ALIGN_MIDDLE);
 			email.setHorizontalAlignment(Element.ALIGN_LEFT);
 			table.addCell(email);
-
+			
 			document.add(table);
 			
 			document.add(new Paragraph(new Date().toString()));

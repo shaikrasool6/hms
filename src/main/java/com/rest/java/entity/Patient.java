@@ -4,9 +4,7 @@ package com.rest.java.entity;
 import java.io.Serializable;
 import java.sql.Date;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -54,8 +52,8 @@ public class Patient implements Serializable {
 	@JoinColumn(name="hospId")
 	private Hospital hospital;
 
-	
 
+	
 	public Hospital getHospital() {
 		return hospital;
 	}

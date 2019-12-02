@@ -18,7 +18,6 @@ public class DoctorDto {
 	private Integer hospId;
 	
 
-
 	public Integer getHospId() {
 		return hospId;
 	}

@@ -40,7 +40,7 @@ public class Doctor implements Serializable {
 	@JoinColumn(name="hospId")
 	private Hospital hospital;
 
-	
+
 
 	public Hospital getHospital() {
 		return hospital;

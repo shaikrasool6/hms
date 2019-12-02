@@ -104,6 +104,7 @@ public class DoctorServiceImpl implements DoctorService{
 		entity.setDeparment(dto.getDeparment());
 		entity.setAddress(dto.getAddress());
 		entity.setHospital(hospitalDao.getOneHospital(dto.getHospId()));
+		
 
 		return entity;
 	}
