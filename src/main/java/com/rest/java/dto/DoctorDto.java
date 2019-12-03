@@ -17,6 +17,18 @@ public class DoctorDto {
 
 	private Integer hospId;
 	
+	private Integer pid;
+	
+	
+	
+
+	public Integer getPid() {
+		return pid;
+	}
+
+	public void setPid(Integer pid) {
+		this.pid = pid;
+	}
 
 	public Integer getHospId() {
 		return hospId;
@@ -76,6 +88,12 @@ public class DoctorDto {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "DoctorDto [drId=" + drId + ", name=" + name + ", email=" + email + ", phone=" + phone + ", deparment="
+				+ deparment + ", address=" + address + ", hospId=" + hospId + ", pid=" + pid + "]";
 	}
 	
 	

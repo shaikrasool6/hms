@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import com.rest.java.dao.DoctorDao;
 import com.rest.java.dao.HospitalDao;
+import com.rest.java.dao.PatientDao;
 import com.rest.java.dto.DoctorDto;
 import com.rest.java.entity.Doctor;
 import com.rest.java.service.DoctorService;
@@ -23,6 +24,9 @@ public class DoctorServiceImpl implements DoctorService{
 	
 	@Autowired
 	private HospitalDao hospitalDao;
+	
+	@Autowired
+	private PatientDao patientDao;
 
 	@Override
 	public DoctorDto addDoctor(DoctorDto dto) {
@@ -104,7 +108,7 @@ public class DoctorServiceImpl implements DoctorService{
 		entity.setDeparment(dto.getDeparment());
 		entity.setAddress(dto.getAddress());
 		entity.setHospital(hospitalDao.getOneHospital(dto.getHospId()));
-		
+		entity.setPatient(patientDao.getOnePatient(dto.getPid()));
 
 		return entity;
 	}
@@ -120,6 +124,7 @@ public class DoctorServiceImpl implements DoctorService{
 		dto.setDeparment(entity.getDeparment());
 		dto.setAddress(entity.getAddress());
 		dto.setHospId(entity.getHospital().getHospId());
+		dto.setPid(entity.getPatient().getPid());
 		return dto;
 	}
 

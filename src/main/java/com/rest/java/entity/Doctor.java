@@ -39,8 +39,19 @@ public class Doctor implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="hospId")
 	private Hospital hospital;
+	
+	@ManyToOne
+	@JoinColumn(name="pid")
+	private Patient patient;
 
+	
+	public Patient getPatient() {
+		return patient;
+	}
 
+	public void setPatient(Patient patient) {
+		this.patient = patient;
+	}
 
 	public Hospital getHospital() {
 		return hospital;

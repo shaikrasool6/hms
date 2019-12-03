@@ -1,6 +1,7 @@
 package com.rest.java.dto;
 
 import java.sql.Date;
+import java.util.List;
 
 public class PatientDto {
 
@@ -31,11 +32,20 @@ public class PatientDto {
 	private Integer hospId;
 	
 	
+	private List<DoctorDto> drdtos;
 	
 	
 	
 	
 	
+	public List<DoctorDto> getDrdtos() {
+		return drdtos;
+	}
+
+	public void setDrdtos(List<DoctorDto> drdtos) {
+		this.drdtos = drdtos;
+	}
+
 	public Integer getHospId() {
 		return hospId;
 	}

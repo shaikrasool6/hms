@@ -3,14 +3,20 @@ package com.rest.java.entity;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Fetch;
+import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.DateTimeFormat.ISO;
 @Entity
@@ -23,7 +29,7 @@ public class Patient implements Serializable {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer pid;
+	private int pid;
 	
 	private String name;
 	
@@ -52,8 +58,22 @@ public class Patient implements Serializable {
 	@JoinColumn(name="hospId")
 	private Hospital hospital;
 
-
+	@Fetch(FetchMode.SELECT)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "hospital", orphanRemoval = true)
+	private List<Doctor> doctorsList;
 	
+	
+	
+	public List<Doctor> getDoctorsList() {
+		return doctorsList;
+	}
+
+	public void setDoctorsList(List<Doctor> doctorsList) {
+		this.doctorsList = doctorsList;
+	}
+	
+	
+
 	public Hospital getHospital() {
 		return hospital;
 	}
